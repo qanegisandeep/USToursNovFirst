@@ -3,6 +3,10 @@
 
 <suite name="Suite" verbose="5">
  
+  <listeners>
+	<listener class-name="com.qa.newtours.listeners.ExtentReportListener" />
+ </listeners>
+ 
   <test name="New Tours Demo Test">
     <classes>
     	<class name="com.qa.newtours.tests.RegistrationPageTests" />
