@@ -10,6 +10,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.qa.newtours.basepage.BasePage;
+import com.qa.newtours.pages.NewTourLandingPage;
 import com.qa.newtours.pages.RegistrationPage;
 
 
@@ -19,6 +20,7 @@ public class RegistrationPageTests {
 	Properties prop;
 	WebDriver driver;
 	RegistrationPage registrationPage;
+	NewTourLandingPage newTourLandingPage; 
 	
 	@BeforeMethod
 	public void setUp() {
@@ -29,12 +31,14 @@ public class RegistrationPageTests {
 		driver.get(prop.getProperty("url"));
 		driver.manage().window().fullscreen();
 		driver.manage().deleteAllCookies();	
-		registrationPage = new RegistrationPage(driver);
+		
+		newTourLandingPage = new NewTourLandingPage(driver);
+		registrationPage = newTourLandingPage.goToRegistrationPage();
 	}
 	
 	@Test
 	public void verifyUserRegistration() {
-		Assert.assertEquals(registrationPage.userRegistration(), "http://newtours.demoaut.com/create_account_success.php", "Registration failed");
+		Assert.assertEquals(registrationPage.userRegistration(), "Thank you for registering. You may now sign-in using the user name and password you've just entered.", "Registration failed");
 	}
 	
 	

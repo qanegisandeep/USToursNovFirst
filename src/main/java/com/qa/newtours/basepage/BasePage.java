@@ -50,7 +50,7 @@ public class BasePage {
 		try {
 			
 			//FileInputStream ip = new FileInputStream("/Users/sandeepnegi/eclipse-workspace/SplashmathDemoProject11/src/main/java/com/qa/splashmath/config/config.properties");
-			FileInputStream ip = new FileInputStream(System.getProperty("user.dir")+ "/src/main/java/com/qa/splashmath/config/config.properties");
+			FileInputStream ip = new FileInputStream(System.getProperty("user.dir")+ "/src/main/java/com/qa/newtours/config/config.properties");
 			
 			prop.load(ip);
 		}catch (FileNotFoundException e) {

@@ -24,15 +24,15 @@ public class RegistrationPage extends BasePage{
 	By password = By.name("password");
 	By confirmPassword = By.name("confirmPassword");
 	By submitForm = By.name("register");
-	By signIn = By.linkText(" sign-in ");
+	By signInPage = By.xpath("(//table)[8]//tr[3]/td/p[2]");
 
 	public RegistrationPage(WebDriver driver) {
 		this.driver = driver;
 		elementUtility = new ElementUtility(driver);
+		elementUtility.waitForTitlePresent("Register: Mercury Tours", 20);
 	}
 	
 	public String userRegistration() {
-		String userUrl = null;
 		elementUtility.doSendKeys(firstName, "qa");
 		elementUtility.doSendKeys(lastName, "testing");
 		elementUtility.doSendKeys(phone, "1234567890");
@@ -46,9 +46,9 @@ public class RegistrationPage extends BasePage{
 		elementUtility.doSendKeys(password, "123456");
 		elementUtility.doSendKeys(confirmPassword, "123456");
 		elementUtility.doClick(submitForm);
-		elementUtility.waitForElementPresent(signIn, 20);
+		elementUtility.waitForElementPresent(signInPage, 20);
 		
-		return elementUtility.getCurrentUrl();
+		return elementUtility.getText(signInPage);
 		
 	}
 }

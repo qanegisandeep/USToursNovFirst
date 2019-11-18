@@ -44,6 +44,13 @@ public class ElementUtility {
 		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 	}
 	
+	public void waitForTitlePresent(String title , int time) {
+		WebDriverWait wait = new WebDriverWait(driver ,time);
+		wait.until(ExpectedConditions.titleContains(title));
+	}
+	
+	
+	
 	public String getText(By locator) {
 		String elementText = null;
 		try {
@@ -63,4 +70,14 @@ public class ElementUtility {
 		}
 		return currentUrl;
 	}
+	
+//	public boolean isElementVisible(By locator) {
+//		boolean elementVisible = false;
+//		try {
+//			elementVisible = driver.findElements(locator).is
+//		}catch(Exception e) {
+//			System.out.println(e.getMessage());
+//		}
+//		return elementVisible;
+//	}
 }
